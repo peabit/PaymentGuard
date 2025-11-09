@@ -3,6 +3,7 @@
     <RootNamespace>Host</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Confluent.Kafka" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
   </ItemGroup>
 </Project>
