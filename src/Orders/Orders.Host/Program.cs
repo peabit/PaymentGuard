@@ -2,6 +2,10 @@ using Orders;
 
 var appBuilder = WebApplication.CreateBuilder(args);
 
-appBuilder.Services.AddHostedService<Consumer>();
+var bootstrapServers = appBuilder.Configuration
+    .GetSection("Kafka:BootstrapServers")
+    .Get<string>()!;
+
+appBuilder.Services.AddHostedService(_ => new Consumer(bootstrapServers));
 
 appBuilder.Build().Run();

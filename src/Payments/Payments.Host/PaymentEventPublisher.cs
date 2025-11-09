@@ -14,14 +14,14 @@ internal sealed class PaymentEventPublisher : IDisposable
         Converters = { new JsonStringEnumConverter() }
     };
 
-    public PaymentEventPublisher()
+    public PaymentEventPublisher(string bootstrapServers)
     {
-        var config = new ProducerConfig
+        var builder = new ProducerBuilder<string, string>(new ProducerConfig
         {
-            BootstrapServers = "localhost:9092",
-        };
+            BootstrapServers = bootstrapServers
+        });
 
-        _producer = new ProducerBuilder<string, string>(config).Build();
+        _producer = builder.Build();
     }
 
     public async Task PublishAsync(PaymentStatusChanged @event, CancellationToken cancellationToken)

@@ -6,7 +6,7 @@ using Payments.Contracts;
 
 namespace Orders;
 
-internal sealed class Consumer : BackgroundService
+internal sealed class Consumer(string bootstrapServers) : BackgroundService
 {
     private readonly JsonSerializerOptions _serializerOptions = new()
     {
@@ -53,11 +53,11 @@ internal sealed class Consumer : BackgroundService
         }
     }
 
-    private static IConsumer<Ignore, string> CreateConsumer()
+    private IConsumer<Ignore, string> CreateConsumer()
     {
         var config = new ConsumerConfig
         {
-            BootstrapServers = "localhost:9092",
+            BootstrapServers = bootstrapServers,
             GroupId = "orders",
             AutoOffsetReset = AutoOffsetReset.Earliest
         };
@@ -69,11 +69,11 @@ internal sealed class Consumer : BackgroundService
         return consumer;
     }
 
-    private static IProducer<string, string> CreateProducer()
+    private IProducer<string, string> CreateProducer()
     {
         var config = new ProducerConfig
         {
-            BootstrapServers = "localhost:9092",
+            BootstrapServers = bootstrapServers
         };
         
         return new ProducerBuilder<string, string>(config).Build();
