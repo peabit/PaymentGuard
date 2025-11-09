@@ -1,13 +1,7 @@
-var builder = WebApplication.CreateBuilder(args);
+using Orders;
 
-var services = builder.Services;
+var appBuilder = WebApplication.CreateBuilder(args);
 
-services.AddControllers();
-services.AddOpenApi();
+appBuilder.Services.AddHostedService<Consumer>();
 
-var app = builder.Build();
-
-app.MapOpenApi();
-app.MapControllers();
-
-app.Run();
+appBuilder.Build().Run();

@@ -3,6 +3,11 @@
       <RootNamespace>Orders</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="Confluent.Kafka" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\Payments\Payments.Contracts\Payments.Contracts.csproj" />
+      <ProjectReference Include="..\Orders.Contracts\Orders.Contracts.csproj" />
     </ItemGroup>
 </Project>
