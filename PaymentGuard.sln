@@ -26,6 +26,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payments.Contracts", "src\P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders.Contracts", "src\Orders\Orders.Contracts\Orders.Contracts.csproj", "{1D38AAC0-C225-4876-B837-687C138DF06C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{127CD060-8DEB-4020-9610-6B9B6DC91D26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGuard.Infrastructure.Kafka", "src\PaymentGuard\Infrastructure\PaymentGuard.Infrastructure.Kafka\PaymentGuard.Infrastructure.Kafka.csproj", "{B02D7C3D-B51C-4C73-A1E1-883422AC05A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +56,10 @@ Global
 		{1D38AAC0-C225-4876-B837-687C138DF06C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D38AAC0-C225-4876-B837-687C138DF06C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D38AAC0-C225-4876-B837-687C138DF06C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B02D7C3D-B51C-4C73-A1E1-883422AC05A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B02D7C3D-B51C-4C73-A1E1-883422AC05A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B02D7C3D-B51C-4C73-A1E1-883422AC05A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B02D7C3D-B51C-4C73-A1E1-883422AC05A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9ABAF103-717D-4086-9021-1DCF74C71F5D} = {E0C8155D-3E87-493C-9584-E1148C8E3EC6}
@@ -62,5 +70,7 @@ Global
 		{FAFF0A61-E716-4067-BA49-BFE2F5BCBDF8} = {E6A8C298-F4D1-4F2A-8749-272E7E4FB5A7}
 		{F5DBB8CE-9AA6-4C19-B4F1-E1581197C88C} = {AA159745-3CC8-41C8-A91F-ECABD20F8EF9}
 		{1D38AAC0-C225-4876-B837-687C138DF06C} = {E6A8C298-F4D1-4F2A-8749-272E7E4FB5A7}
+		{127CD060-8DEB-4020-9610-6B9B6DC91D26} = {9ABAF103-717D-4086-9021-1DCF74C71F5D}
+		{B02D7C3D-B51C-4C73-A1E1-883422AC05A9} = {127CD060-8DEB-4020-9610-6B9B6DC91D26}
 	EndGlobalSection
 EndGlobal
