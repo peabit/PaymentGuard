@@ -1,13 +1,12 @@
-var builder = WebApplication.CreateBuilder(args);
+using Payments;
 
-var services = builder.Services;
+var appBuilder = WebApplication.CreateBuilder(args);
 
-services.AddControllers();
-services.AddOpenApi();
+appBuilder.Services
+    .AddSingleton<PaymentEventRepository>()
+    .AddSingleton<PaymentEventPublisher>()
+    .AddHostedService<PaymentEventGenerator>();
 
-var app = builder.Build();
-
-app.MapOpenApi();
-app.MapControllers();
-
-app.Run();
+appBuilder
+    .Build()
+    .Run();
