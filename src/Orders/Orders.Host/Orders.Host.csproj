@@ -1,4 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+      <RootNamespace>Orders</RootNamespace>
+    </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
     </ItemGroup>
