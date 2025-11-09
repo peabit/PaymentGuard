@@ -7,6 +7,4 @@ appBuilder.Services
     .AddSingleton<PaymentEventPublisher>()
     .AddHostedService<PaymentEventGenerator>();
 
-appBuilder
-    .Build()
-    .Run();
+appBuilder.Build().Run();

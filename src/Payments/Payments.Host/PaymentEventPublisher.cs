@@ -32,7 +32,7 @@ internal sealed class PaymentEventPublisher : IDisposable
             Value = JsonSerializer.Serialize(@event, _serializerOptions)
         };
 
-        await _producer.ProduceAsync(topic: "my-topic", message, cancellationToken);
+        await _producer.ProduceAsync(topic: "payment-status-changed", message, cancellationToken);
     }
 
     public void Dispose() => _producer.Dispose();

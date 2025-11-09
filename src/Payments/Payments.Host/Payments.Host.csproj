@@ -4,7 +4,6 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Confluent.Kafka" />
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Payments.Contracts\Payments.Contracts.csproj" />
