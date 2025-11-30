@@ -6,4 +6,7 @@
     <PackageReference Include="Confluent.Kafka" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\PaymentGuard.Infrastructure.Kafka\PaymentGuard.Infrastructure.Kafka.csproj" />
+  </ItemGroup>
 </Project>

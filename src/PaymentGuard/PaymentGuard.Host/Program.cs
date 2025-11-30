@@ -1,16 +1,13 @@
-using Host;
+using PaymentGuard.Infrastructure.Kafka;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
 
-services.AddHostedService<KafkaListener>();
-services.AddControllers();
-services.AddOpenApi();
+services.AddKafka(typeof(Program).Assembly);
 
 var app = builder.Build();
 
-app.MapOpenApi();
 app.Run();
 
 // Host

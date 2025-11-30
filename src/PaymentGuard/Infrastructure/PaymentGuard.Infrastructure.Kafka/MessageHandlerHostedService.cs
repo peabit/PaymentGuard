@@ -1,12 +1,24 @@
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace PaymentGuard.Infrastructure.Kafka;
 
-internal sealed class MessageHandler : BackgroundService
+internal sealed class MessageHandlerHostedService<TMessage>(
+    IMessageHandler<TMessage> handler) 
+    : BackgroundService
+//  MessageConsumer<TMessage> consumer consumer.Commit();
+//  BatchFactory
+//  DateTimeProvider
+    where TMessage : class
 {
-    protected override Task ExecuteAsync(CancellationToken stoppingToken)
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        throw new NotImplementedException();
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            await handler.HandleAsync([], stoppingToken);
+
+            await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
+        }
     }
 }
 
